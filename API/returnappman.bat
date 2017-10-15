@@ -1,0 +1,2 @@
+cd..
+call blazeam.bat

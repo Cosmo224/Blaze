@@ -1,0 +1,51 @@
+Blaze API Documentation
+
+The Blaze API is a tool for writing Blaze applications. It has 38 commands vs. LauncherAPI's 31. 
+
+print [text] - prints text
+wait - waits X amount of time in seconds
+setcolor [color bg then fg] - sets cmd colour
+getversion - Gets Blaze version
+getapiversion - Gets Blaze API version
+exitblaze - Exits Blaze
+input [text] - Gets user input - use %choice%
+add [num1] [num2] - Adds 2 numbers and returns them in %addresult%
+divide [num1] [num2] - Divides 2 numbers and returns them in %divresult%
+subtract [num1] [num2] - Subtracts 2 numbers and returns them in %subresult%
+multiply [num1] [num2] - Multiplies 2 numbers and returns them in %mulresult%
+createfile [content] [filename] [extension] - Creates file with content content with filename filename.extension
+appendfile [content] [filename] [extension] - Appends content to file with filename filename.extension
+deletefile [filename] - Deletes file with filename
+movefile [filename] [extension] [newlocation] - Moves file with name filename.extension to newlocation
+cd [location] - Changes directory to location
+createfolder [name] - Creates folder named name
+deletefolder [name] - Deletes folder named name
+readonly [filename] - Sets read only on file with filename
+removereadonly [filename] - Removes read only on file filename
+hidden [filename] - Sets hidden on file filename
+removehidden [filename] - Removes hidden on file filename
+openpathapp [name] - Opens app on PATH with name name
+explore [location] - Opens Windows Explorer at location location
+shutdownpc - shuts down pc
+restartpc - restarts pc
+getwinos - Returns the Windows NT kernel version number in %version% 
+
+5.0 - Windows 2000
+5.1 - Windows XP
+6.0 - Windows Vista
+6.1 - Windows 7
+6.2 - Windows 8
+6.3 - Windows 8.1
+10.0 - Windows 10
+
+returnblaze - Returns to the Blaze Main Menu
+returnappman - Returns to the Blaze Application Manager
+returnfileman - Returns to the Blaze File Manager
+timer [seconds] - Sets a timer to expire in seconds seconds
+copyfolder [folder name] [newlocation] - Copies a folder folder name to newlocation
+movefolder [folder name] [newlocation] - Moves a folder folder name to newlocation
+copyfolders [folder name] [newlocation] - Copies a folder and ALL SUBDIRECTORIES folder name to newlocation
+movefolders [folder name] [newlocation] - Moves a folder and ALL SUBDIRECTORIES folder name to newlocation
+viewfiles - Brings up a list of files.
+viewfilesext - Brings up a list of files with more information (size, etc)
+copyfile [filename] [newlocation] - Copies a file filename to new location newlocation.

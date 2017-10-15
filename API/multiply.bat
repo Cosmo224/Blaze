@@ -1,0 +1,1 @@
+set /a mulresult=%1*%2

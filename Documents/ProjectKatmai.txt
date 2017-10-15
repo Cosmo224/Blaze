@@ -1,0 +1,18 @@
+Project Katmai is Blaze 2.0. It will use TCC/LE and TCC/RT and have a windowing system (powered by Katmai Window Manager and UWIDs) and a expanded API. Applications will be able to be added to the home screen
+
+--Katmai Roadmap--
+3/10/17 - Start of planning
+5/10/17 - Completion of Blaze
+From 6/10/17 to 8/10/17 - Start of development
+Before 11/10/17 - Completion of Katmai Window Manager
+Before 12/10/17 - Completion of Katmai API
+Before 13/10/17 - Completion of Katmai inbuilt apps
+Before 14/10/17 - Katmai Beta
+Before 15/10/17 - Katmai RC
+Before 16/10/17 - Katmai Release
+
+--What are UWIDs--
+UWIDs are Universal Window IDs. They are used by Katmai to render windows. You will need to add (as a developer) a UWID Installer which will add your UWID to app.ini (Your config file) Katmai will search for this app.ini file with the window characteristics and will then draw the window.
+
+A UWID should never be less than 1000 and will be blocked by Katmai if it is.
+A UWID should never be more than 10000000 and will be blocked by Katmai if it is. 9,999,000 unique UWIDs to choose from. If a UWID conflict occurs, the app probably won't work - UWIDs will be saved in the UWID config file, uwid.ini.

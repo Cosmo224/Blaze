@@ -1,0 +1,1 @@
+Welcome to Blaze. Blaze is a API and file manager for batch. It also includes an application launcher where you can develop your own applications using the Blaze API, which makes batch easier.

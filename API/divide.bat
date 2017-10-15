@@ -1,0 +1,1 @@
+set /a divresult=%1/%2
