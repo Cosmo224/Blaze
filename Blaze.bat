@@ -118,7 +118,6 @@ goto blazemenu
 :blazeam
 call blazeam.bat kickstart
 :developer_tools
-echo Jumped to :developer_tools >> log.txt
 echo Blaze Developer Tools
 echo 1) Create Application Template
 echo 2) Copy Application to the Blaze Program Files
@@ -179,70 +178,9 @@ cd..
 echo Press a key to go back.
 pause >nul
 goto developer_tools
-:debug_menu
-set /p version=<version.txt
-set /p apiversion=<apiversion.txt
-set /a blazekey=%random%
 
-echo Blaze Debug (Developer Release 1)
-echo If your name isn't Xeno or you aren't a member of Leaf Computer, get the hell outta' here.
-echo Choose an option
-echo 1) Echo Blaze version
-echo 2) Echo API version
-echo 3) Delete API
-echo 4) Delete program files
-echo 5) Delete API command
-
-choice /c 12345
-if ERRORLEVEL 1 goto e1
-if ERRORLEVEL 2 goto e2
-if ERRORLEVEL 3 goto delapi
-if ERRORLEVEL 4 goto delprg
-if ERRORLEVEL 5 goto delete_api_command
-:e1
-echo %version%
-pause
-goto debug
-:e2
-echo %apiversion%
-pause
-goto debug
-:delapi
-cd API
-del *.*
-cd..
-pause
-goto debug
-:delprg
-cd program_files
-del *.*
-rd /s /q *.*
-cd..
-pause
-goto debug
-:delete_api_command
-cd API
-dir /b
-echo Choose an API to delete (please don't put an extension)
-set /p debug_delapi
-del %debug_delapi%.bat
-echo Done!
-goto debug_menu
 :blaze_settings
-cls
-echo Blaze Settings
-title Blaze Settings
-echo 1) Blaze Window Color
-echo 2) Application Settings
-REM echo 3) BlazeFM Settings
-echo 3) Advanced Settings
-set /p blaze_settings=
-if %blaze_settings%==1 goto blaze_set_window_color
-if %blaze_settings%==2 goto blaze_application_settings
-REM if %blaze_settings%==3 goto blaze_file_manager_settings
-if %blaze_settings%==3 goto blaze_advanced_settings
-
-goto blaze_settings
+goto :blaze_set_window_color
 :blaze_set_window_color
 echo Type in a CMD colour to use...
 set /p set_window_color=
@@ -251,62 +189,11 @@ echo %set_window_color%>windowcolor.blaze
 cd..
 echo You will need to restart to see the changes. Restart?
 set /p blaze_set_restart=
-if %blaze_set_restart%==Y goto :blaze_restart
+if %blaze_set_restart%==Y goto blaze_restart
 if %blaze_set_restart%==N goto menu
 goto blaze_set_window_color
 
 :blaze_restart
+echo Restarting...
 start Blaze.bat
 exit
-:blaze_application_settings
-echo 1) Display application names
-REM echo 1) Display application name on startup of application
-
-set /p blaze_application_settings=
-if %blaze_file_manager_settings%==1 goto display_app_name
-REM if %blaze_file_manager_settings%==2 goto display_app_start_name
-
-goto blaze_application_settings
-:display_app_names
-echo 1) Enabled
-echo 2) Disabled
-set /p display_app_names
-if %blaze_file_manager_settings%==1 goto display_app_names_enable
-if %blaze_file_manager_settings%==2 goto display_app_names_disable
-
-goto display_app_names
-:enable_change_directory 
-REM cd settings
-REM echo true > enablecd.blaze
-REM cd..
-:disable_change_directory
-REM cd settings
-REM echo true > enablecd.blaze
-REM cd..
-:blaze_advanced_settings
-echo 1) Enable/disable developer tools
-set /p display_developer_tools=
-if %display_developer_tools%==1 goto display_developer_tools
-
-:display_developer_tools
-echo 1) Enabled
-echo 2) Disabled
-set /p enable_developer_tools=
-if %enable_developer_tools%==1 goto enable_developer_tools
-if %enable_developer_tools%==2 goto disable_developer_tools
-
-:enable_developer_tools
-cd settings
-echo true > enabledevtools.blaze
-cd..
-goto blaze_settings
-
-:settings_creator
-IF NOT EXIST settings md settings
-cd settings
-echo true > displaydevtools.blaze
-echo 0f > windowcolor.blaze
-echo false > enablecd.blaze
-echo true > disableappnames.blaze
-echo true > startfullscreen.blaze
-echo true > displayappstart.blaze
