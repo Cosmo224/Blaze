@@ -1,12 +1,19 @@
 Blaze API Documentation
+Version 1.0.5
+
+Created: 5 October 2017
+Updated: 19 October 2017
+
+Changes:
+Updates to getversion and getapiversion
 
 The Blaze API is a tool for writing Blaze applications. It has 38 commands vs. LauncherAPI's 31. 
 
 print [text] - prints text
 wait - waits X amount of time in seconds
 setcolor [color bg then fg] - sets cmd colour
-getversion - Gets Blaze version
-getapiversion - Gets Blaze API version
+getversion - Sets the current Blaze version to the %ver% variable - UPDATED IN 1.0.5, formerly typed out version.txt
+getapiversion - Sets the current Blaze version to the %apiver% variable - UPDATED IN 1.0.5, formerly typed out version.txt
 exitblaze - Exits Blaze
 input [text] - Gets user input - use %choice%
 add [num1] [num2] - Adds 2 numbers and returns them in %addresult%
