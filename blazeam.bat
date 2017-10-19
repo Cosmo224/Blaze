@@ -73,7 +73,7 @@ goto :app_manage
 cd program_files
 dir /b
 
-echo What app to delete?
+echo Which app to delete?
 
 set /p deletechoice=
 
@@ -127,7 +127,7 @@ goto menu
 echo View Application Info
 cd program_files
 dir /b
-echo Choose an application to view the information of
+echo Choose an application to view the information of.
 set /p file_info=
 cd %file_info%
 cd metadata
