@@ -1,12 +1,13 @@
 @echo off
 cls
+REM Protect
 if %1==kickstart goto menu
 
 :menu
 echo Blaze File Manager %version% 
 echo 1) View Files
 echo 2) File Control
-REM echo Powered by BlazeAPI
+
 
 set /p fm_menu=
 if %fm_menu%==1 goto view_files
@@ -103,9 +104,8 @@ goto file_control_menu
 
 :move_folder
 
-echo Type the name of the folder to move (use the location of the folder e.g c:/folder1/)
 set /p move_folder1=
-echo Type the destination (use the location of the folder e.g c:/folder2/). The original folder will be deleted.
+echo Type the destination 
 set /p move_folder2=
 ROBOCOPY %move_folder1% %move_folder2% /MOVE >nul
 echo Done!
@@ -127,7 +127,7 @@ if %cd_menu%==9 goto file_control_menu
 
 :create_file
 
-echo Type the content of the file to create (will be created in the current directory, a la the API folder)
+echo Type the content of the file to create (will be created in the current directory)
 set /p create_file1=
 echo Type the name of the file
 set /p create_file2=
@@ -164,7 +164,7 @@ if %cf_menu%==9 goto file_control_menu
 
 :create_folder
 
-echo Type the name of the folder to reate (use the location of the soon-to-be folder e.g c:/folder5/)
+echo Type the name of the folder to create
 set /p create_folder1=
 md %create_folder1%
 echo Done!
@@ -173,7 +173,7 @@ goto file_control_menu
 
 :delete_folder
 
-echo Type the name of the folder to delete (use the location of the folder e.g c:/folder6/)
+echo Type the name of the folder to delete.
 set /p delete_folder1=
 rd %delete_folder1%
 echo Done!
