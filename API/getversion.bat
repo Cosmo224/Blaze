@@ -1,3 +1,3 @@
 cd..
-type version.txt
+set ver=<ver.txt
 cd API
