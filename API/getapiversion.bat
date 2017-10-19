@@ -1,3 +1,3 @@
 cd..
-type apiversion.txt
+set %apiver%=<apiversion.txt
 cd API
