@@ -109,14 +109,20 @@ echo Blaze %version% - API v%apiversion%
 echo 1) Blaze File Manager
 echo 2) Blaze Application Manager
 echo 3) Set Window Colour
+echo 4) Exit to Windows
 IF EXIST developer.blaze echo 9) Developer Tools
 set /p blaze_menu=
 if %blaze_menu%==1 goto blazefm
 if %blaze_menu%==2 goto blazeam
 if %blaze_menu%==3 goto blaze_set_window_color
+if %blaze_menu%==4 goto exit_to_system
 if %blaze_menu%==9 goto developer_tools
 
-echo Incorrect!
+:exit_to_system
+exit
+
+echo Incorrect choice!
+pause >nul
 goto blazemenu
 :blazefm
 call blazefm.bat kickstart
@@ -125,20 +131,25 @@ goto blazemenu
 :blazeam
 call blazeam.bat kickstart
 :developer_tools
+cls
 echo Blaze Developer Tools
 echo 1) Create Application Template
-echo 2) Copy Application to the Blaze Program Files
-echo 3) Delete Application
-echo 4) Create Application Metadata
-echo 5) Delete all .txt files
-choice /c 12345
-
-if ERRORLEVEL 1 goto :createapp
-if ERRORLEVEL 2 goto :copyapprg
-if ERRORLEVEL 3 goto :delapp
-if ERRORLEVEL 4 goto :create_app_metadata
-if ERRORLEVEL 5 goto :delete_txt_files
-
+echo 2) Delete Application
+echo 3) Create Application Metadata
+echo 4) Delete all .txt files
+echo 5) Return to Main Menu
+echo 6) Exit to Windows
+set /p developer_tools=
+if %developer_tools%==1 goto createapp
+if %developer_tools%==2 goto delete_application
+if %developer_tools%==3 goto create_app_metadata
+if %developer_tools%==4 goto delete_txt_files
+if %developer_tools%==5 goto menu
+if %developer_tools%==6 goto exit_to_system
+:delete_application
+echo You can do this in BlazeAM.
+pause
+goto developer_tools
 :create_app_metadata
 cd program_files
 dir /b
@@ -187,6 +198,7 @@ pause >nul
 goto developer_tools
 
 :blaze_settings
+REM not used after Beta1
 goto :blaze_set_window_color
 :blaze_set_window_color
 echo Type in a CMD colour to use...
