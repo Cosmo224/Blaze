@@ -7,8 +7,8 @@ if %1==kickstart goto menu
 echo Blaze File Manager %version% 
 echo 1) View Files
 echo 2) File Control
-echo 3) Exit to main menu
-echo 4) Exit Blaze entirely
+echo 3) Exit to Blaze
+echo 4) Exit to Windows
 
 set /p fm_menu=
 if %fm_menu%==1 goto view_files
