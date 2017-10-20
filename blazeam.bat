@@ -11,11 +11,20 @@ echo Menu
 echo 1) Launch applications
 echo 2) Manage applications
 echo 3) View application information
-set /p choice7=
-if %choice7%==1 goto :app_launch
-if %choice7%==2 goto :app_manage
-if %choice7%==3 goto :view_app_info
+echo 4) Exit to Blaze
+echo 5) Exit to Windows
+set /p blaze_am_choice=
+if %blaze_am_choice%==1 goto :app_launch
+if %blaze_am_choice%==2 goto :app_manage
+if %blaze_am_choice%==3 goto :view_app_info
+if %blaze_am_choice%==4 goto :exit_blaze_am
+if %blaze_am_choice%==5 goto :exit_to_system
 
+:exit_blaze_am
+echo Exiting to blaze...
+call blaze.bat
+:exit_to_system
+exit
 :app_launch
 cd program_files
 dir /b
