@@ -12,11 +12,7 @@ set /p apiversion=<apiversion.txt
 set /a blazekey=%random%
 cd settings
 set /p window_color=<windowcolor.blaze
-REM set /p display_application_name_on_startup=<displayappstart.blaze
-REM set /p display_app_names=<displayappnames.blaze
-REM set /p enable_change_directory=<enablecd.blaze
-REM set /p enable_development_tools=<enabledevtools.blaze
-REM set /p start_in_fullscreen=<startfullscreen.blaze
+
 color %window_color%
 cd..
 goto windetect
@@ -26,7 +22,7 @@ REM title Warning
 
 goto blazeinitvars
 :windetect
-title Blaze (Developer Release)
+title Blaze (%version%)
 ver >nul | find "5.0" >nul
 
 if ERRORLEVEL 1 goto detectxp
@@ -82,15 +78,26 @@ echo Blaze intializing...
 echo Checking Blaze integrity...
 
 :chk1
-REM if exist API\ ( goto chk1 ) ELSE ( goto :error )
-REM if exist program_files\ ( goto chk2 ) ELSE (goto :error_programfiles )
+if exist API\ ( goto chk2 ) ELSE ( goto :error )
 
-goto :blazemenu
+
+:chk2
+if exist program_files\ ( goto blazemenu ) ELSE (goto :error_program_files )
+
 :error
 color 0d
 echo Fatal Error
 echo Blaze API is missing
 echo You must reinstall Blaze (Error #0001)
+echo Press any key to exit
+
+pause >nul
+exit
+:error_program_files
+color 0d
+echo Fatal Error
+echo Blaze Program Files are missing
+echo You must reinstall Blaze (Error #0002)
 echo Press any key to exit
 
 pause >nul
