@@ -187,10 +187,12 @@ set /p set_window_color=
 cd settings
 echo %set_window_color%>windowcolor.blaze
 cd..
-echo You will need to restart to see the changes. Restart?
+echo You will need to restart to see the changes. Restart? (Y/N)
 set /p blaze_set_restart=
 if %blaze_set_restart%==Y goto blaze_restart
+if %blaze_set_restart%==y goto blaze_restart
 if %blaze_set_restart%==N goto menu
+if %blaze_set_restart%==n goto menu
 goto blaze_set_window_color
 
 :blaze_restart
