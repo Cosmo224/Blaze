@@ -1,6 +1,6 @@
 @echo off
 cls
-REM Protect
+REM BlazeFM Kickstart Protection System
 if %1==kickstart goto menu
 
 :menu
@@ -12,7 +12,7 @@ echo 2) File Control
 set /p fm_menu=
 if %fm_menu%==1 goto view_files
 if %fm_menu%==2 goto file_control_menu
-
+goto menu
 :view_files
 dir
 echo Press any key to return to the menu.
@@ -93,9 +93,9 @@ if %fo_menu%==9 goto file_control_menu
 
 :copy_folder
 
-echo Type the name of the folder to copy (use the location of the folder e.g c:/folder1/)
+echo Type the name of the folder to copy
 set /p copy_folder1=
-echo Type the destination (use the location of the folder e.g c:/folder2/)
+echo Type the destination
 set /p copy_folder2=
 xcopy /e %copy_folder1% %copy_folder2%
 echo Done!
@@ -222,7 +222,7 @@ goto file_control_menu
 echo Type the name of the file to set hidden.  
 set /p set_hidden_file1=
 
-Attrib +H %set_hidden_file1%
+attrib +H %set_hidden_file1%
 echo Done!
 pause >nul
 
