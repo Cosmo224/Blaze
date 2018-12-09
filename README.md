@@ -1,2 +1,1 @@
-# Blaze
-A file manager in Batch. Successor, Katmai, will use Take Command LE.
+# DISCONTINUED 9 DECEMBER 2018, FREE TO USE, DISREGARD ANY LICENSING
